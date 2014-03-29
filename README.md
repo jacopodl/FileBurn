@@ -8,4 +8,4 @@ FileBurn overwrites the original file with random bytes for its entire length, i
 
 Recovery Test:
 ==============
-The recovery tests performed with software EasyRecover didn't yield any result.
+The recovery tests performed with software EasyRecovery didn't yield any result.
