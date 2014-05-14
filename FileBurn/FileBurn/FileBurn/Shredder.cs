@@ -68,8 +68,6 @@ namespace FileBurn
             this.file = file;
             this.cicle = cicle;
             this.rndB = rndB;
-            if (!this.stop)
-                this.stop = false;
         }
 
         public void stopProcess()
@@ -79,6 +77,7 @@ namespace FileBurn
 
         public void Execute()
         {
+            this.stop = false;
             try
             {
                 FileStream fs = new FileStream(this.file, FileMode.Open, FileAccess.ReadWrite);
@@ -133,8 +132,8 @@ namespace FileBurn
 
                 bw.Close();
                 fs.Close();
-
-                System.IO.File.Delete(this.file);
+                if(this.stop!=true)
+                    System.IO.File.Delete(this.file);
 
                 if (this.Finish != null)
                     Finish(this, this.file, len);
